@@ -1,8 +1,10 @@
-//8. Â ìàòðèöå À(N,N) íàéòè ïåðâóþ ñòðîêó, íå ñîäåðæàùóþ îòðèöàòåëüíûõ ýëåìåíòîâ,
-//   è ïîìåíÿòü å¸ ñ ïîñëåäíåé ñòðîêîé. Óêàçàòåëè íà ñòðîêè.
-// TODO не выполнено условие, что в main только вызовы. Вся реализация функций в ОТДЕЛЬНОМ файле а их объявление в .h
-// Неверно понято задание!!! Не надо переставлять строки/столбцы!!! Надо переставлять только УКАЗАТЕЛИ
-#include "Main.h"
+﻿//8. В матрице А(N,N) найти первую строку, не содержащую отрицательных элементов, и поменять её с последней строкой. Указатели на строки.
+#include <iostream>
+#include <iomanip>
+#include <time.h>
+
+#include "Functions.h"
+
 using namespace std;
 
 const int N = 4;
@@ -31,14 +33,14 @@ int main()
 		switch (input)
 		{
 		case 0:
-			cout << "8. Â ìàòðèöå À(N,N) íàéòè ïåðâóþ ñòðîêó, íå ñîäåðæàùóþ îòðèöàòåëüíûõ ýëåìåíòîâ," << endl << "   è ïîìåíÿòü å¸ ñ ïîñëåäíåé ñòðîêîé. Óêàçàòåëè íà ñòðîêè." << endl << endl;
+			cout << "8. В матрице А(N,N) найти первую строку, не содержащую отрицательных элементов," << endl << "   и поменять её с последней строкой. Указатели на строки." << endl << endl;
 			break;
 		case 1:
-			init(matrix);
-			print(matrix);
-			posAndLastRows(matrix);
+			init(matrix, N);
+			print(matrix, N);
+			posAndLastRows(matrix, N);
 			cout << endl << "Result: " << endl;
-			print(matrix);
+			print(matrix, N);
 			break;
 		case 2:
 			cout << "Good-Bye!" << endl;
@@ -55,52 +57,4 @@ int main()
 	delete[] matrix;
 
 	return 0;
-}
-void init(int** matrix)
-{
-	srand((unsigned int)time(NULL));
-	for (int i = 0; i < N; ++i)
-	for (int j = 0; j < N; ++j)
-		matrix[i][j] = rand() % 100 - 50;
-
-}
-void print(int** matrix)
-{
-	for (int i = 0; i < N; ++i)
-	{
-		for (int j = 0; j < N; ++j)
-		{
-			cout.width(4);
-			cout << setw(5) << matrix[i][j] << "   ";
-		}
-		cout << endl;
-	}
-}
-void posAndLastRows(int** matrix)
-{
-	for (int i = 0; i < N; ++i)
-	{
-		bool onlyPositives = true;
-
-		for (int j = 0; j < N; ++j)
-		{
-			if (matrix[i][j] < 0)
-			{
-				onlyPositives = false;
-				break;
-			}
-		}
-		if (onlyPositives)
-		{
-			swapRows(matrix[i], matrix[N - 1]);
-			break;
-		}
-	}
-}
-void swapRows(int *row1, int *row2)
-{
-	int tmp[N];
-	memcpy(tmp, row1, N * sizeof(int));
-	memcpy(row1, row2, N * sizeof(int));
-	memcpy(row2, tmp, N * sizeof(int));
 }
