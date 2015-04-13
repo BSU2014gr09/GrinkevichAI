@@ -17,7 +17,6 @@ void AddPolynom(const Polynom *first, const Polynom *second, Polynom *result, bo
 void SubPolynom(const Polynom *first, const Polynom *second, Polynom *result);
 void InitPolynom(Polynom *polynom);
 void PopulatePolynom(Polynom *polynom);
-void NegatePolinom(Polynom *polynom);
 void FreePolynom(Polynom *polynom);
 void PrintPolynom(Polynom *polynom);
 

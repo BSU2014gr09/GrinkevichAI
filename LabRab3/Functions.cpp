@@ -46,15 +46,6 @@ void AddPolynom(const Polynom *first, const Polynom *second, Polynom *result, bo
 	result->numMembers = numResult;
 }
 
-void NegatePolinom(Polynom *polynom)
-{
-	for (int i = 0; i < polynom->numMembers; ++i)
-	{
-		PolynomMember *member = &polynom->members[i];
-		member->coef = -member->coef;
-	}
-}
-
 void SubPolynom(const Polynom *first, const Polynom *second, Polynom *result)
 {
 	AddPolynom(first, second, result, true);

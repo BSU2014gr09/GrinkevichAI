@@ -11,6 +11,13 @@ int main()
 	Polynom polynom1, polynom2;
 	Polynom result;
 
+	InitPolynom(&polynom1);
+	InitPolynom(&polynom2);
+	InitPolynom(&result);
+
+	PopulatePolynom(&polynom1);
+	PopulatePolynom(&polynom2);
+
 	bool isRunning = true;
 	while (isRunning)
 	{
@@ -28,13 +35,6 @@ int main()
 		switch (input)
 		{
 		case 1:
-			InitPolynom(&polynom1);
-			InitPolynom(&polynom2);
-			InitPolynom(&result);
-
-			PopulatePolynom(&polynom1);
-			PopulatePolynom(&polynom2);
-
 			PrintPolynom(&polynom1);
 			PrintPolynom(&polynom2);
 
@@ -43,15 +43,6 @@ int main()
 			PrintPolynom(&result);
 			break;
 		case 2:
-			InitPolynom(&polynom1);
-			InitPolynom(&polynom2);
-			InitPolynom(&result);
-
-			PopulatePolynom(&polynom1);
-			PopulatePolynom(&polynom2);
-
-			NegatePolinom(&polynom1);
-
 			PrintPolynom(&polynom1);
 			PrintPolynom(&polynom2);
 
